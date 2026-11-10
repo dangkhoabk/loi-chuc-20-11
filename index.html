@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Trang chúc mừng Ngày Nhà giáo Việt Nam 20/11 - Tri ân thầy cô"
+    />
+    <title>Tri Ân Thầy Cô - 20/11</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-1: #fff8f8;
+        --bg-2: #ffe7e7;
+        --card: rgba(255, 255, 255, 0.9);
+        --primary: #d92d2d;
+        --primary-dark: #b91c1c;
+        --secondary: #fda4af;
+        --accent: #fef2f2;
+        --text: #1f2937;
+        --muted: #6b7280;
+        --line: rgba(217, 45, 45, 0.18);
+        --success: #16a34a;
+        --shadow: rgba(239, 68, 68, 0.18);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Quicksand", sans-serif;
+        color: var(--text);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background:
+          radial-gradient(circle at top left, rgba(253, 164, 175, 0.28), transparent 28%),
+          radial-gradient(circle at bottom right, rgba(244, 114, 182, 0.18), transparent 28%),
+          linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 100%);
+        padding: 28px 18px;
+      }
+
+      .page-shell {
+        position: relative;
+        width: min(820px, 100%);
+      }
+
+      .flower {
+        position: absolute;
+        width: 180px;
+        height: 180px;
+        opacity: 0.25;
+        pointer-events: none;
+        filter: blur(0.2px);
+      }
+
+      .flower::before,
+      .flower::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+      }
+
+      .flower::before {
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0 16%, transparent 17%),
+          radial-gradient(circle at 50% 35%, #f9a8d4 0 18%, transparent 18.5%),
+          radial-gradient(circle at 65% 50%, #fbbf24 0 18%, transparent 18.5%),
+          radial-gradient(circle at 35% 50%, #fca5a5 0 18%, transparent 18.5%),
+          radial-gradient(circle at 50% 65%, #f9a8d4 0 18%, transparent 18.5%),
+          radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.25) 0 34%, transparent 35%);
+        transform: scale(0.96);
+      }
+
+      .flower::after {
+        inset: 56px;
+        background: radial-gradient(circle, #f8c6d8 0%, #eab308 100%);
+        border-radius: 50%;
+        box-shadow: 0 0 0 12px rgba(255, 255, 255, 0.25);
+      }
+
+      .flower.left {
+        left: -40px;
+        top: 50px;
+        transform: rotate(-18deg);
+      }
+
+      .flower.right {
+        right: -20px;
+        bottom: 60px;
+        transform: rotate(16deg);
+      }
+
+      .card {
+        position: relative;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        box-shadow: 0 22px 55px var(--shadow);
+        overflow: hidden;
+        padding: 36px 30px 24px;
+        backdrop-filter: blur(12px);
+      }
+
+      .card::before,
+      .card::after {
+        content: "";
+        position: absolute;
+        width: 130px;
+        height: 130px;
+        border-color: rgba(217, 45, 45, 0.9);
+        pointer-events: none;
+      }
+
+      .card::before {
+        top: 18px;
+        left: 18px;
+        border-top: 4px solid rgba(217, 45, 45, 0.78);
+        border-left: 4px solid rgba(217, 45, 45, 0.78);
+        border-top-left-radius: 22px;
+      }
+
+      .card::after {
+        right: 18px;
+        bottom: 18px;
+        border-right: 4px solid rgba(217, 45, 45, 0.78);
+        border-bottom: 4px solid rgba(217, 45, 45, 0.78);
+        border-bottom-right-radius: 22px;
+      }
+
+      .header {
+        text-align: center;
+        position: relative;
+        z-index: 1;
+        margin-bottom: 10px;
+      }
+
+      .header-title {
+        font-family: "Dancing Script", cursive;
+        font-size: clamp(2.7rem, 6vw, 4.3rem);
+        line-height: 1.1;
+        color: var(--primary);
+        font-weight: 700;
+        text-shadow: 0 3px 10px rgba(217, 45, 45, 0.08);
+        margin-bottom: 6px;
+      }
+
+      .header-subtitle {
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 2.5px;
+        font-size: 0.78rem;
+        font-weight: 700;
+      }
+
+      .wish-panel {
+        position: relative;
+        z-index: 1;
+        min-height: 290px;
+        display: grid;
+        place-items: center;
+        margin: 24px 0 16px;
+      }
+
+      .wish-card {
+        width: min(100%, 640px);
+        text-align: center;
+        display: none;
+        opacity: 0;
+        transform: translateY(10px);
+        animation: fadeIn 0.6s ease forwards;
+      }
+
+      .wish-card.active {
+        display: block;
+      }
+
+      .quote {
+        font-size: clamp(1.2rem, 2vw, 1.7rem);
+        color: var(--primary-dark);
+        font-weight: 700;
+        font-style: italic;
+        margin-bottom: 18px;
+      }
+
+      .message {
+        font-size: clamp(1rem, 1.8vw, 1.25rem);
+        line-height: 1.8;
+        color: var(--text);
+        max-width: 620px;
+        margin: 0 auto;
+      }
+
+      .actions {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+      }
+
+      .btn {
+        border: 2px solid var(--primary);
+        background: #fff;
+        color: var(--primary);
+        border-radius: 999px;
+        padding: 12px 22px;
+        font-size: 0.96rem;
+        font-weight: 700;
+        font-family: "Quicksand", sans-serif;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        box-shadow: 0 8px 15px rgba(217, 45, 45, 0.08);
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(217, 45, 45, 0.16);
+      }
+
+      .btn.primary {
+        background: linear-gradient(135deg, var(--primary), #ef4444);
+        color: #fff;
+      }
+
+      .btn.primary:hover {
+        background: linear-gradient(135deg, var(--primary-dark), #dc2626);
+      }
+
+      .custom-box {
+        position: relative;
+        z-index: 1;
+        display: none;
+        width: min(100%, 560px);
+        margin: 18px auto 0;
+        padding: 18px 18px 14px;
+        border: 1px solid rgba(217, 45, 45, 0.15);
+        background: rgba(254, 242, 242, 0.8);
+        border-radius: 18px;
+        animation: fadeIn 0.35s ease;
+      }
+
+      .custom-box textarea {
+        width: 100%;
+        min-height: 110px;
+        border: 2px solid rgba(217, 45, 45, 0.28);
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 13px;
+        resize: vertical;
+        padding: 14px 16px;
+        font-size: 1rem;
+        font-family: "Quicksand", sans-serif;
+        color: var(--text);
+        outline: none;
+        transition: border-color 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .custom-box textarea:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 4px rgba(217, 45, 45, 0.08);
+      }
+
+      .custom-box .row {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 12px;
+      }
+
+      .toast {
+        position: fixed;
+        right: 20px;
+        bottom: 22px;
+        background: rgba(22, 163, 74, 0.95);
+        color: white;
+        padding: 12px 16px;
+        border-radius: 999px;
+        font-weight: 700;
+        box-shadow: 0 12px 30px rgba(22, 163, 74, 0.25);
+        opacity: 0;
+        transform: translateY(12px);
+        pointer-events: none;
+        transition: all 0.3s ease;
+      }
+
+      .toast.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .footer {
+        position: relative;
+        z-index: 1;
+        margin-top: 24px;
+        padding-top: 16px;
+        border-top: 1px dashed rgba(217, 45, 45, 0.35);
+        text-align: center;
+        color: var(--muted);
+        font-weight: 600;
+        font-size: 0.92rem;
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 620px) {
+        .card {
+          padding: 28px 18px 20px;
+        }
+
+        .header-subtitle {
+          letter-spacing: 1.6px;
+          font-size: 0.7rem;
+        }
+
+        .wish-panel {
+          min-height: 250px;
+        }
+
+        .actions {
+          flex-direction: column;
+        }
+
+        .btn {
+          width: 100%;
+        }
+
+        .card::before,
+        .card::after {
+          width: 88px;
+          height: 88px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="flower left" aria-hidden="true"></div>
+      <div class="flower right" aria-hidden="true"></div>
+
+      <main class="card" aria-label="Trang chúc mừng 20/11">
+        <header class="header">
+          <h1 class="header-title">Tri Ân Thầy Cô</h1>
+          <p class="header-subtitle">Chào Mừng Ngày Nhà Giáo Việt Nam 20/11</p>
+        </header>
+
+        <section class="wish-panel" aria-live="polite">
+          <article class="wish-card active" id="wish-1">
+            <p class="quote">“Một chữ cũng là thầy, nửa chữ cũng là thầy.”</p>
+            <p class="message">
+              Nhân ngày 20/11, chúng em xin kính chúc thầy cô luôn mạnh khỏe,
+              hạnh phúc và giữ vững ngọn lửa nhiệt huyết để tiếp tục chèo lái
+              những chuyến đò tri thức cập bến tương lai.
+            </p>
+          </article>
+
+          <article class="wish-card" id="wish-2">
+            <p class="quote">“Nghề giáo như ánh nến, đốt cháy chính mình để soi đường cho người khác.”</p>
+            <p class="message">
+              Cảm ơn thầy cô vì những bài học hay, những lời răn dạy quý giá và cả
+              sự bao dung vô bờ bến đối với những nghịch ngợm của tuổi học trò chúng em.
+            </p>
+          </article>
+
+          <article class="wish-card" id="wish-3">
+            <p class="quote">“Ơn thầy soi lối mở đường, cho con vững bước dặm trường tương lai.”</p>
+            <p class="message">
+              Kính chúc toàn thể các thầy cô giáo một ngày lễ trọn vẹn niềm vui,
+              luôn nhận được sự kính trọng và yêu mến từ các thế hệ học sinh.
+            </p>
+          </article>
+        </section>
+
+        <div class="custom-box" id="custom-box">
+          <textarea
+            id="user-wish"
+            aria-label="Nhập lời chúc riêng"
+            placeholder="Nhập lời chúc ý nghĩa của riêng bạn tại đây..."
+          ></textarea>
+          <div class="row">
+            <button class="btn primary" type="button" onclick="sendWish()">Gửi lời chúc</button>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn" type="button" onclick="changeWish()">Đổi lời chúc</button>
+          <button class="btn" type="button" onclick="toggleCustomBox()">Viết lời chúc riêng</button>
+          <button class="btn primary" type="button" onclick="sharePage()">Chia sẻ</button>
+        </div>
+
+        <footer class="footer">
+          Tập san điện tử Dệt chữ thành hoa | Lớp 6A1 - THCS Trần Phú
+        </footer>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">Lời chúc của bạn đã được lưu lại.</div>
+
+    <script>
+      const totalWishes = 3;
+      let currentWish = 1;
+
+      function changeWish() {
+        const customBox = document.getElementById('custom-box');
+        const successToast = document.getElementById('toast');
+
+        customBox.style.display = 'none';
+        successToast.classList.remove('show');
+        document.getElementById('user-wish').value = '';
+
+        document.getElementById(`wish-${currentWish}`).classList.remove('active');
+        currentWish = currentWish % totalWishes + 1;
+        document.getElementById(`wish-${currentWish}`).classList.add('active');
+      }
+
+      function toggleCustomBox() {
+        for (let i = 1; i <= totalWishes; i++) {
+          document.getElementById(`wish-${i}`).classList.remove('active');
+        }
+
+        const box = document.getElementById('custom-box');
+        const isVisible = box.style.display === 'block';
+        box.style.display = isVisible ? 'none' : 'block';
+        document.getElementById('toast').classList.remove('show');
+        document.getElementById('user-wish').value = '';
+      }
+
+      function sendWish() {
+        const txt = document.getElementById('user-wish').value.trim();
+
+        if (!txt) {
+          alert('Bạn vui lòng nhập lời chúc trước khi gửi nhé!');
+          return;
+        }
+
+        const toast = document.getElementById('toast');
+        toast.textContent = '❤️ Lời chúc của bạn đã được lưu lại.';
+        toast.classList.add('show');
+
+        setTimeout(() => toast.classList.remove('show'), 2200);
+      }
+
+      async function sharePage() {
+        const shareData = {
+          title: 'Tri Ân Thầy Cô - 20/11',
+          text: 'Kính chúc thầy cô ngày 20/11 tràn đầy niềm vui và hạnh phúc.',
+          url: window.location.href,
+        };
+
+        try {
+          if (navigator.share) {
+            await navigator.share(shareData);
+          } else if (navigator.clipboard) {
+            await navigator.clipboard.writeText(window.location.href);
+            const toast = document.getElementById('toast');
+            toast.textContent = '🔗 Đã sao chép liên kết thành công.';
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2200);
+          } else {
+            alert('Trình duyệt của bạn không hỗ trợ chia sẻ trực tiếp.');
+          }
+        } catch (error) {
+          console.log('Share cancelled:', error);
+        }
+      }
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
